@@ -1,4 +1,4 @@
-# Prometheus-workshop
+# Prometheus and Grafana on Minikube
 
 ## Setup 
 
@@ -24,10 +24,13 @@
 
 5. Install/Deploy Prometheus on Minikube:
   * `helm install -n monitoring -f prometheus/values.yaml ./prometheus`
+After Deployment is done, Prometheus UI can be accessed at [http://prometheus.local]() and Alertmanager UI at [http://alertmanager.local]().
+
 
 6. Install Grafana ([https://grafana.com/grafana]())
   * `helm install -n grafana -f grafana/values.yaml stable/grafana`
   * get the password for admin: `kubectl get secret --namespace default grafana-grafana -o jsonpath="{.data.grafana-admin-password}" | base64 --decode ; echo`
+After Deployment is done Grafana UI can be accessed at [http://grafana.local](). Use User `admin` and the password from the preceeding step.
 
 7. Configure Prometheus as datasource for Grafana:
   * Open [http://grafana.local]() 
@@ -41,6 +44,6 @@
 
 
 ### Some helpful Notes:
-Force reload prometheus config:
+Force reload of prometheus config:
 `curl -X POST http://prometheus.local/-/reload`
 
