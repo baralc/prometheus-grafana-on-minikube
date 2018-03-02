@@ -667,6 +667,9 @@ serverFiles:
   rules: {}
 
   prometheus.yml:
+    global:
+      scrape_interval: 15s
+
     rule_files:
       - /etc/config/rules
       - /etc/config/alerts
