@@ -12,10 +12,7 @@
   * Determine actual ip with `minikube ip`
 
 ```
-192.168.99.100  minikube.local
-192.168.99.100  prometheus.local
-192.168.99.100  alertmanager.local
-192.168.99.100  grafana.local
+192.168.99.100  minikube.local prometheus.local alertmanager.local grafana.local
 ```
 
 4. Install helm ([https://docs.helm.sh/using_helm/#installing-helm]())
@@ -23,7 +20,7 @@
   * Install helm on the minikube: `helm init`
 
 5. Install/Deploy Prometheus on Minikube:
-  * `helm install -n monitoring -f prometheus/values.yaml ./prometheus`
+  * `helm install -n monitoring -f prometheus/values.yaml stable/prometheus`
 After Deployment is done, Prometheus UI can be accessed at [http://prometheus.local]() and Alertmanager UI at [http://alertmanager.local]().
 
 
