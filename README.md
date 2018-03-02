@@ -26,17 +26,13 @@ After Deployment is done, Prometheus UI can be accessed at [http://prometheus.lo
 
 6. Install Grafana ([https://grafana.com/grafana]())
   * `helm install -n grafana -f grafana/values.yaml stable/grafana`
-  * get the password for admin: `kubectl get secret --namespace default grafana-grafana -o jsonpath="{.data.grafana-admin-password}" | base64 --decode ; echo`
-After Deployment is done Grafana UI can be accessed at [http://grafana.local](). Use User `admin` and the password from the preceeding step.
+After Deployment is done Grafana UI can be accessed at [http://grafana.local](). Use User `admin` and the password `admin`.
 
-7. Configure Prometheus as datasource for Grafana:
-  * Open [http://grafana.local]() 
-  * Click on `Add Datasource`
-  	* give it a name
-	* select `Type`: `Prometheus` 
-	* add Url `http://prometheus.local`
-	* select `Access`: `direct`
-	* Click `Add`
+Prometheus is configured as default datasource. 
+
+There is already a preinstalled dashboard: "Kubernetes cluster monitoring (via Prometheus)".
+
+
 
 
 
