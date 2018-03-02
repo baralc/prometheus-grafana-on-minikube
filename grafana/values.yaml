@@ -169,7 +169,7 @@ server:
     ## If true, an initial Grafana Datasource will be set
     ## Default: false
     ##
-    enabled: false
+    enabled: true
 
     ## How long should it take to commit failure
     ## Default: 300
@@ -185,15 +185,15 @@ server:
     ## Ref1: http://docs.grafana.org/reference/http_api/#create-data-source
     ## Ref2: https://github.com/grafana/grafana/issues/1789
     ##
-    # datasource:
+    datasource:
       ## The datasource name.
       ## Default: default
-      # name: default
+      name: prometheus
 
       ## Type of datasource
       ## Default: prometheus
       ##
-      # type: prometheus
+      type: prometheus
 
       ## The url of the datasource. To set correctly you need to know
       ## the right datasource name and its port ahead. Check kubernetes
@@ -201,7 +201,7 @@ server:
       ## Synatx like `http://<release name>-<server name>:<port number>
       ## Default: "http://limping-tiger-server"
       ##
-      # url: "http://limping-tiger-server"
+      url: "http://monitoring-prometheus-server"
 
       ## The name of the database at the datasource.
       ## Required parameter when used with elasticsearch, which refers to the index_name
@@ -217,12 +217,12 @@ server:
       ## Specify if Grafana has to go thru proxy to reach datasource
       ## Default: proxy
       ##
-      # access: proxy
+      access: proxy
 
       ## Specify should Grafana use this datasource as default
       ## Default: true
       ##
-      # isDefault: true
+      isDefault: true
 
     ## Specify the job policy
     ## Default: OnFailure
